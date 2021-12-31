@@ -1,25 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
+import Search from './search';
+import Results from './results';
+import axios from 'axios';
+const URL = 'http://localhost/movieApp/queries';
 
 function App() {
+  const [results, setResults] = useState([]);
+
+  useEffect(() => {}, []);
+
+  function handleSubmit(params) {
+    axios
+      .post(URL + '/getmovies.php', params)
+      .then((response) => {
+        setResults(response.data);
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="root">
+      <Search handleSubmit={handleSubmit} />
+      <Results data={results} />
     </div>
   );
 }
-
 export default App;
