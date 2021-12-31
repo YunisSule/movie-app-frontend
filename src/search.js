@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 const URL = 'http://localhost/movieApp/queries';
 
 export default function Search({ handleSubmit }) {
@@ -19,9 +20,7 @@ export default function Search({ handleSubmit }) {
       .catch((error) => {
         alert(error);
       });
-  }, []);
 
-  useEffect(() => {
     axios
       .get(URL + '/getregions.php')
       .then((response) => {
@@ -30,8 +29,7 @@ export default function Search({ handleSubmit }) {
       .catch((error) => {
         alert(error);
       });
-  }, []);
-  useEffect(() => {
+
     axios
       .get(URL + '/gettitletypes.php')
       .then((response) => {
@@ -40,9 +38,7 @@ export default function Search({ handleSubmit }) {
       .catch((error) => {
         alert(error);
       });
-  }, []);
 
-  useEffect(() => {
     axios
       .get(URL + '/getyears.php')
       .then((response) => {
@@ -95,7 +91,9 @@ export default function Search({ handleSubmit }) {
             ))}
           </select>
         </form>
-        <button onClick={() => handleSubmit(formdata)}>Search</button>
+        <Link to="/">
+          <button onClick={() => handleSubmit(formdata)}>Search</button>
+        </Link>
       </div>
     );
   }

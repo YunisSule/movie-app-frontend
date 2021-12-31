@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-export default function Results({ data }) {
+export default function Results({ data, select }) {
   const [isLoaded, setIsLoaded] = useState(false);
   console.log(data);
 
@@ -9,13 +10,11 @@ export default function Results({ data }) {
       <h1>Movies</h1>
 
       <div className="movies">
-        {data.map((items) => (
-          <a href="#" className="movie">
-            <h4>{items.title}</h4>
+        {data.map((item) => (
+          <Link to="/item" className="movie" onClick={() => select(item)}>
+            <h4>{item.title}</h4>
             <img src="https://via.placeholder.com/150" alt="placeholder img" />
-            <p>Released: {items.start_year}</p>
-            <p>Runtime: {items.runtime_minutes} minutes</p>
-          </a>
+          </Link>
         ))}
       </div>
     </div>

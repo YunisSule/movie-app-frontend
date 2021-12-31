@@ -1,14 +1,15 @@
 import './App.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Search from './search';
 import Results from './results';
 import axios from 'axios';
+import { Routes, Route } from 'react-router-dom';
+import SelectedItem from './selectedItem';
 const URL = 'http://localhost/movieApp/queries';
 
 function App() {
   const [results, setResults] = useState([]);
-
-  useEffect(() => {}, []);
+  const [selectedItem, setSelectedItem] = useState([]);
 
   function handleSubmit(params) {
     axios
@@ -20,11 +21,24 @@ function App() {
         alert(error);
       });
   }
+  function selectMovie(params) {
+    axios
+      .post(URL + '/getmoviebyid.php', params)
+      .then((response) => {
+        setSelectedItem(response.data);
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  }
 
   return (
     <div className="root">
       <Search handleSubmit={handleSubmit} />
-      <Results data={results} />
+      <Routes>
+        <Route path="/" element={<Results data={results} select={selectMovie} />} />
+        <Route path="/item" element={<SelectedItem data={selectedItem} />} />
+      </Routes>
     </div>
   );
 }

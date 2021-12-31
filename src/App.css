@@ -1,5 +1,6 @@
 body {
   box-sizing: border-box;
+  margin: 20px;
 }
 
 #search {
@@ -37,4 +38,21 @@ form {
 
 .movie p {
   margin: 5px;
+}
+
+.selected-movie {
+  border: 2px solid black;
+  padding: 2em;
+  margin-top: 2em;
+  background-color: rgb(233, 233, 233);
+  box-shadow: 2px 2px 5px 0px #ccc;
+}
+
+.movie-heading {
+  display: inline-block;
+}
+
+.movie-heading h1,
+.movie-heading h5 {
+  margin: 0;
 }
