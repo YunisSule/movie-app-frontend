@@ -14,6 +14,7 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   function handleSubmit(params) {
+    setIsLoaded(false);
     axios
       .post(URL + '/getmovies.php', params)
       .then((response) => {
