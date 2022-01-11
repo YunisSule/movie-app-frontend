@@ -57,11 +57,7 @@ export default function Search({ handleSubmit }) {
   }
 
   if (!isLoaded) {
-    return (
-      <div>
-        <p>Loading...</p>
-      </div>
-    );
+    return <div className="search-loader"></div>;
   } else {
     return (
       <div id="search">
@@ -91,7 +87,7 @@ export default function Search({ handleSubmit }) {
             ))}
           </select>
         </form>
-        <Link to="/">
+        <Link to="/results">
           <button onClick={() => handleSubmit(formdata)}>Search</button>
         </Link>
       </div>
