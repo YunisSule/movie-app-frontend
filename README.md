@@ -1,3 +1,19 @@
+# Movie app
+
+This is a simple frontend for https://github.com/YunisSule/moviea-app-backend.git
+
+## Searching movies
+
+![image](https://user-images.githubusercontent.com/89300165/151932073-403c2923-876d-4d4a-bafa-0c5afcacf6de.png)
+
+## Search results
+
+![image](https://user-images.githubusercontent.com/89300165/151932586-b81c0039-6967-46a4-a2b3-0c15f5fdb1ad.png)
+
+## Details of selected movie
+
+![image](https://user-images.githubusercontent.com/89300165/151932539-a26d51d8-cf2c-40e7-b79d-6aaeead16f9a.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
